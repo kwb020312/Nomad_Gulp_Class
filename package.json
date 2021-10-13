@@ -11,7 +11,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"gulp-cli": "^2.3.0"
+		"gulp-cli": "^2.3.0",
+		"gulp-pug": "^5.0.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
