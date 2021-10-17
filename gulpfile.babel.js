@@ -3,6 +3,8 @@ import gpug from 'gulp-pug';
 import del from 'del';
 import ws from 'gulp-webserver';
 import image from 'gulp-image';
+import autoprefixed from 'gulp-autoprefixer';
+import miniCSS from 'gulp-csso';
 
 const sass = require('gulp-sass')(require('node-sass'));
 
@@ -38,7 +40,16 @@ const watch = () => {
 const img = () => gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
 
 const styles = () =>
-	gulp.src(routes.scss.src).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(routes.scss.dest));
+	gulp
+		.src(routes.scss.src)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(
+			autoprefixed({
+				browsers: [ 'last 2 versions' ]
+			})
+		)
+		.pipe(miniCSS())
+		.pipe(gulp.dest(routes.scss.dest));
 
 const prepare = gulp.series([ clean, img ]);
 
