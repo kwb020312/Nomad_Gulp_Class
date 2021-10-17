@@ -11,8 +11,11 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"del": "^6.0.0",
 		"gulp-cli": "^2.3.0",
-		"gulp-pug": "^5.0.0"
+		"gulp-image": "^6.2.1",
+		"gulp-pug": "^5.0.0",
+		"gulp-webserver": "^0.9.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
